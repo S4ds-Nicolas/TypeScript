@@ -1,0 +1,1 @@
+Clase en la que se va: https://platzi.com/home/clases/2879-typescript-tipos-avanzados/47306-unknow-type/

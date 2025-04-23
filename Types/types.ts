@@ -42,3 +42,23 @@ type PersonaSoloLectura = ReadOnly<PersonaType>;
 // };
   
 console.log(persona.nombre); // Esto sí se compilará a JavaScript
+
+type Variantes = "pequeño" | "mediano" | "grande";
+type ClaseCSS = `boton-${Variantes}`;
+
+// let botonPequeño: ClaseCSS = "boton-pequeño";
+// let botonMediano: ClaseCSS = "boton-mediano";
+// let botonGrande: ClaseCSS = "boton-grande";
+
+
+type EsNumero<T> = T extends number ? true : false;
+
+function esNumero<T>(valor: T): EsNumero<T> {
+  return (typeof valor === "number") as any;
+}
+
+const resultado1 = esNumero(42);       // true
+const resultado2 = esNumero("hello");  // false
+
+console.log(resultado1);
+console.log(resultado2);
