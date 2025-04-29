@@ -1,5 +1,5 @@
 import { Product } from './product.model'
-import { CreateProductDTO } from './product.dto'
+import { CreateProductDTO, FindProductDTO, UpdateProductDTO } from './product.dto'
 import { faker } from '@faker-js/faker/.';
 
 
@@ -23,6 +23,20 @@ export const addProduct = (data: CreateProductDTO) => {
     return NewProduct;
 }
 
-export const Updateproduct = (id: string, product: Product) => {
-//TODO: Create a function to update a product
+export const Updateproduct = (id: Product['id'], changes: UpdateProductDTO) : Product => {
+    const index = products.findIndex(item => item.id === id);
+    const prevData = products[index];
+    products[index] = {
+        ...prevData,
+        ...changes,
+        updatedAt: new Date(),
+    }
+    return products[index];
 }
+
+export const findProduct = (dto: FindProductDTO): Product[] => {
+    //dto.color = 'red';
+    //code
+    return products;
+}
+
