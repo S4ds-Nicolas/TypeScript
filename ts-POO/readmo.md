@@ -1,0 +1,1 @@
+clase en la que se va: https://platzi.com/home/clases/2880-typescript-poo/47254-metodos/

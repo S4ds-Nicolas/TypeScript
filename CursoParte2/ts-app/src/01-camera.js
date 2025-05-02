@@ -8,14 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const fetchData = (url) => __awaiter(void 0, void 0, void 0, function* () {
-    const response = yield fetch(url);
-    const data = yield response.json();
-    return data;
+Object.defineProperty(exports, "__esModule", { value: true });
+const camera_1 = require("@capacitor/camera");
+const takePicture = () => __awaiter(void 0, void 0, void 0, function* () {
+    const image = yield camera_1.Camera.getPhoto({
+        quality: 90,
+        allowEditing: true,
+        resultType: camera_1.CameraResultType.Base64,
+        direction: camera_1.CameraDirection.Front
+    });
 });
-let button = document.querySelector('.btnInfo');
-let paragraph = document.querySelector('.info');
-button.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
-    const data = yield fetchData('https://microsoftedge.github.io/Demos/json-dummy-data/64KB.json');
-    paragraph.textContent = JSON.stringify(data);
-}));

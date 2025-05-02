@@ -37,39 +37,33 @@ var __setFunctionName = (this && this.__setFunctionName) || function (f, name, p
     if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
     return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
 };
-// Implementación del decorador
-function personaDeck(target) {
-    console.log(target);
-    // Extendemos la funcionalidad añadiendo un nuevo método
-    target.prototype.despedir = function (despedida) {
-        return despedida + " " + this.nombre;
-    };
-}
-// Aplicación del decorador a la clase
-let Persona2 = (() => {
-    let _classDecorators = [personaDeck];
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AppComponent = void 0;
+const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
+let AppComponent = (() => {
+    let _classDecorators = [(0, core_1.Component)({
+            selector: 'app-root',
+            imports: [router_1.RouterOutlet],
+            templateUrl: './app.component.html',
+            styleUrl: './app.component.css'
+        })];
     let _classDescriptor;
     let _classExtraInitializers = [];
     let _classThis;
-    var Persona2 = _classThis = class {
-        constructor(nombre, edad) {
-            this.nombre = nombre;
-            this.edad = edad;
-        }
-        saludar(saludo) {
-            return `${saludo}, mi nombre es ${this.nombre} y tengo ${this.edad} años`;
+    var AppComponent = _classThis = class {
+        constructor() {
+            this.title = 'proyectoAngular';
         }
     };
-    __setFunctionName(_classThis, "Persona2");
+    __setFunctionName(_classThis, "AppComponent");
     (() => {
         const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(null) : void 0;
         __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
-        Persona2 = _classThis = _classDescriptor.value;
+        AppComponent = _classThis = _classDescriptor.value;
         if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
         __runInitializers(_classThis, _classExtraInitializers);
     })();
-    return Persona2 = _classThis;
+    return AppComponent = _classThis;
 })();
-let usuario = new Persona2("nico", 39);
-console.log(usuario.saludar("holi"));
-console.log(usuario.despedir("chao"));
+exports.AppComponent = AppComponent;
